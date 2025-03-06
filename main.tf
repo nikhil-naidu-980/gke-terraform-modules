@@ -31,3 +31,17 @@ module "gke" {
   machine_type        = var.machine_type
   node_count          = var.node_count
 }
+
+provider "kubernetes" {
+  host                   = module.gke.cluster_endpoint
+  cluster_ca_certificate = base64decode(module.gke.cluster_ca_certificate)
+  token                  = data.google_client_config.default.access_token
+}
+
+module "nginx_app" {
+  source         = "./modules/nginx_app"
+  namespace_name = var.namespace_name
+  app_name       = var.app_name
+  node_pool_name = module.gke.node_pool_name
+  replicas       = var.replicas
+}

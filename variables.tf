@@ -56,3 +56,21 @@ variable "node_count" {
   description = "Number of nodes in the GKE node pool"
   default     = 1
 }
+
+variable "namespace_name" {
+  type        = string
+  description = "Kubernetes namespace for the NGINX app"
+  default     = "nginx-app-namespace"
+}
+
+variable "app_name" {
+  type        = string
+  description = "Name of the NGINX app"
+  default     = "nginx-app"
+}
+
+variable "replicas" {
+  type        = number
+  description = "Number of NGINX replicas"
+  default     = 1
+}
