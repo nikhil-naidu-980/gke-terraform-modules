@@ -13,3 +13,9 @@ module "vpc" {
   public_subnet_cidr  = var.public_subnet_cidr
   private_subnet_cidr = var.private_subnet_cidr
 }
+
+module "service_account" {
+  source            = "./modules/service_account"
+  project_id        = var.project_id
+  service_account_id = var.service_account_id
+}

@@ -32,3 +32,9 @@ variable "private_subnet_cidr" {
   description = "CIDR range for the private subnet"
   default     = "10.0.2.0/24"
 }
+
+variable "service_account_id" {
+  type        = string
+  description = "ID for the GKE service account"
+  default     = "gke-service-account"
+}
