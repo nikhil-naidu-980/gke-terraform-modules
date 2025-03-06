@@ -38,3 +38,21 @@ variable "service_account_id" {
   description = "ID for the GKE service account"
   default     = "gke-service-account"
 }
+
+variable "cluster_name" {
+  type        = string
+  description = "Name of the GKE cluster"
+  default     = "my-gke-cluster"
+}
+
+variable "machine_type" {
+  type        = string
+  description = "Machine type for GKE nodes"
+  default     = "e2-medium"
+}
+
+variable "node_count" {
+  type        = number
+  description = "Number of nodes in the GKE node pool"
+  default     = 1
+}
