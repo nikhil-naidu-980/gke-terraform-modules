@@ -45,3 +45,11 @@ module "nginx_app" {
   node_pool_name = module.gke.node_pool_name
   replicas       = var.replicas
 }
+
+module "load_balancer" {
+  source             = "./modules/load_balancer"
+  nginx_service_name = module.nginx_app.service_name
+  nginx_namespace    = module.nginx_app.namespace
+  domain             = var.domain
+  region             = var.region
+}

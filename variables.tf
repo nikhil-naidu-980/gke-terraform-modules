@@ -74,3 +74,9 @@ variable "replicas" {
   description = "Number of NGINX replicas"
   default     = 1
 }
+
+variable "domain" {
+  type        = string
+  description = "Domain for the load balancer"
+  default     = "www.test-app.com"
+}
